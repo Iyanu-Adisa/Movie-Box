@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --color-primary: hsl(345, 83%, 41%);
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --font-family: "DM Sans", sans-serif;
+  --font-size-small: 14px;
+  --font-size-large: 28px;
+
+  --radius-small: 10px;
+}
+
+.casts {
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: 50px 80px;
+  font-family: var(--font-family);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+}
+
+.section-header a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cast-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  align-items: start;
+}
+
+.cast-card {
+  background: var(--color-white);
+  border-radius: var(--radius-small);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cast-card:hover {
+  transform: scale(1.05);
+}
+
+.cast-card img {
+  width: 250px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-small);
+}
+
+.cast-name {
+  margin-top: 10px;
+  font-size: var(--font-size-small);
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .cast-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cast-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cast-card {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --color-primary: hsl(345, 83%, 41%);
+  --color-primary-hover: hsl(345, 83%, 31%);
+  --color-primary-active: hsl(345, 83%, 51%);
+}
+
+.movie-details-page {
+  font-family: "DM Sans", sans-serif;
+  position: relative;
+  color: white;
+  min-height: 100vh;
+  background-color: #141414;
+  overflow-x: hidden;
+}
+
+.movie-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.25) blur(2px);
+  z-index: 0;
+}
+
+.back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.movie-details-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.details-poster {
+  width: 280px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.details-info {
+  flex: 1;
+  max-width: 480px;
+}
+
+.details-title {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.details-sub {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.details-overview {
+  margin-top: 1.2rem;
+}
+
+.details-overview h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.details-overview p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.watch-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.watch-link:hover {
+  opacity: 0.85;
+}
+
+.loading-text,
+.error-text {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: var(--color-white);
+}
+
+@media (max-width: 900px) {
+  .movie-details-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 7rem 2rem 3rem;
+  }
+
+  .details-poster {
+    width: 70%;
+    max-width: 350px;
+  }
+
+  .details-title {
+    font-size: 1.8rem;
+  }
+
+  .details-sub {
+    font-size: 0.95rem;
+  }
+
+  .details-overview {
+    font-size: 0.95rem;
+  }
+}
