@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Arrival from "./Arrival";
-import ExclusiveVideos from "./exclusiveVideos";
+import ExclusiveVideos from "./ExclusiveVideos";
 import Popular from "./Popular";
 import FeaturedCasts from "./FeaturedCasts";
 import Footer from "./Footer";
