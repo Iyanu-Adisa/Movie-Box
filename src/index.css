@@ -270,32 +270,74 @@ body {
 
 @media (max-width: 768px) {
   .header {
-    padding: 10px 20px;
-    display: flex;
-    gap: 5px;
-    flex-wrap: nowrap;
+    padding: 10px 16px;
+    gap: 8px;
   }
 
+  /* shrink logo */
+  .logo img {
+    height: 32px;
+  }
+
+  /* show hamburger menu */
   .menu-toggle {
     display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    z-index: 1200;
   }
 
+  /* hide desktop links */
   .nav-right {
     display: none;
   }
 
+  /* make search bar visible and usable */
   .search-bar {
-    width: 50%;
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .search-bar input {
-    width: 50%;
-    font-size: var(--font-size-small);
+    width: 100%;
+    font-size: 13px;
+    padding: 6px 35px 6px 12px;
+    border-radius: 20px;
   }
 
   .search-bar img {
-    height: 13px;
-    width: 13px;
+    height: 14px;
+    width: 14px;
+  }
+
+  /* fix dropdown positioning on small screens */
+  .search-results-dropdown {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45px;
+  }
+
+  /* mobile sidebar styling */
+  .sidebar {
+    width: 230px;
+    right: -230px;
+    padding: 60px 20px;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+
+  /* overlay visible when sidebar open */
+  .overlay {
+    display: block;
   }
 }
 
