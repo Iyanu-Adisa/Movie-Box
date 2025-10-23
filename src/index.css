@@ -417,6 +417,10 @@ body {
   font-weight: 600;
 }
 
+.section-header a:hover {
+  color: var(--color-primary-hover);
+}
+
 .movie-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -626,6 +630,15 @@ body {
     padding-left: 40px;
     padding-right: 40px;
   }
+
+  .section-header h2 {
+    font-size: 20px;
+  }
+
+  .section-header a {
+    font-size: 10px;
+  }
+
   .movie-container {
     grid-template-columns: repeat(1, 1fr);
   }
