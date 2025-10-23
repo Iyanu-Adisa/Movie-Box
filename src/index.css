@@ -394,14 +394,16 @@ body {
 .liked-movies {
   background: var(--color-white);
   color: var(--color-black);
-  padding: 60px 80px;
+  padding-top: 70px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .section-header h2 {
@@ -618,15 +620,16 @@ body {
 @media (max-width: 768px) {
   .movie-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 500px;
   }
 
   .movie-card {
-    max-width: 300px;
+    width: 300px;
   }
 
   .movie-pic {
     height: 200px;
+    width: 300px;
   }
 
   .movie-title {
