@@ -626,17 +626,17 @@ body {
   .trending,
   .top-rated,
   .liked-movies {
-    padding-top: 40px;
     padding-left: 40px;
     padding-right: 40px;
   }
 
   .section-header h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
-  .section-header a {
-    font-size: 10px;
+  .carousel-btn {
+    font-size: 1rem;
+    padding: 6px 10px;
   }
 
   .movie-container {
