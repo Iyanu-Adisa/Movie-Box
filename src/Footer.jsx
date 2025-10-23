@@ -31,7 +31,7 @@ const Footer = () => {
       </ul>
 
       <div className="footer-bottom">
-        <p>&copy; 2025 MovieBox by Adisa Iyanu Akorede</p>
+        <p>&copy; 2025 MovieBox by Iyanu Adisa</p>
       </div>
     </footer>
   );
