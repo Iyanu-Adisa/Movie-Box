@@ -160,30 +160,57 @@ body {
   opacity: 1;
 }
 
+.search-results-dropdown {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e1e;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-result-item:hover {
+  background-color: #292929;
+}
+
+.search-result-item img {
+  width: 45px;
+  height: 65px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.movie-info h4 {
+  color: white;
+  font-size: 0.95rem;
+}
+
+.movie-info p {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 10px 20px;
-    flex-wrap: wrap;
-  }
-
-  .search-bar {
-    order: 3;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .search-bar input {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .search-bar {
-    display: none;
-  }
-
-  .nav-right a {
-    font-size: 14px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
   }
 }
 
@@ -362,7 +389,8 @@ body {
 
 /* MOVIE SECTIONS */
 .popular,
-.arrival {
+.trending,
+.top-rated {
   background: var(--color-white);
   color: var(--color-black);
   padding: 60px 80px;
@@ -388,8 +416,9 @@ body {
 
 .movie-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
 }
 
 .movie-card {
@@ -399,6 +428,9 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
+  width: 100%;
+  max-width: 220px;
+  padding-bottom: 8px;
 }
 
 .movie-card:hover {
@@ -407,7 +439,8 @@ body {
 
 .movie-pic {
   width: 100%;
-  display: block;
+  height: 300px;
+  object-fit: cover;
   border-radius: var(--radius-small);
 }
 
@@ -443,7 +476,7 @@ body {
   font-size: var(--font-size-small);
   color: var(--color-text-light);
   font-weight: bold;
-  margin: 10px 0 5px;
+  margin: 5px 0 5px;
 }
 
 .movie-title {
@@ -456,7 +489,7 @@ body {
   justify-content: space-between;
   color: var(--color-text-dark);
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: var(--font-size-small);
 }
 
@@ -483,7 +516,7 @@ body {
   font-weight: 600;
   font-size: var(--font-size-small);
   text-decoration: none;
-  margin-top: 15px;
+  margin-top: 10px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -531,26 +564,104 @@ body {
   color: var(--color-white);
 }
 
-@media (max-width: 1024px) {
-  .movie-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.movie-card {
+  position: relative;
 }
 
-@media (max-width: 600px) {
-  .section-header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+.rank-number {
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
 
+.top-rated-card:hover .rank-number {
+  color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* RESPONSIVENESS */
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
   .movie-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .movie-card {
-    max-width: 350px;
-    margin: 0 auto;
+    max-width: 180px;
+  }
+
+  .movie-pic {
+    height: 230px;
+  }
+
+  .movie-title {
+    font-size: 13px;
+  }
+
+  .movie-year,
+  .movie-rating,
+  .details-link {
+    font-size: 11px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .movie-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .movie-card {
+    max-width: 160px;
+  }
+
+  .movie-pic {
+    height: 200px;
+  }
+
+  .movie-title {
+    font-size: 12px;
+  }
+
+  .movie-year,
+  .movie-rating,
+  .details-link {
+    font-size: 10px;
+  }
+}
+
+/* Extra small (tiny phones) */
+@media (max-width: 480px) {
+  .movie-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .movie-card {
+    max-width: 140px;
+  }
+
+  .movie-pic {
+    height: 180px;
+  }
+
+  .movie-title {
+    font-size: 11px;
+  }
+
+  .movie-year,
+  .movie-rating,
+  .details-link {
+    font-size: 9px;
   }
 }
 
@@ -627,9 +738,7 @@ body {
   }
 
   .search-bar {
-    order: 3;
     width: 100%;
-    margin-top: 10px;
   }
 
   .search-bar input {

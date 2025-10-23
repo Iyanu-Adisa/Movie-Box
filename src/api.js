@@ -16,13 +16,13 @@ export const fetchPopularMovies = async () => {
   }
 };
 
-export const searchMovies = async (query) => {
+export const fetchSearchResults = async (query) => {
   try {
-    const response = await fetch(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1`
+    const res = await fetch(
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
     );
-    const data = await response.json();
-    return data.results;
+    const data = await res.json();
+    return data;
   } catch (error) {
     console.error("Error searching movies:", error);
     return [];
@@ -69,5 +69,31 @@ export const fetchMovieTrailer = async (id) => {
   } catch (error) {
     console.error("Error fetching movie trailer:", error);
     return null;
+  }
+};
+
+export const fetchTopRatedMovies = async () => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error("Error fetching top-rated movies:", error);
+    return [];
+  }
+};
+
+export const fetchMovieCasts = async (id) => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    );
+    const data = await response.json();
+    return data.cast; // returns array of cast members
+  } catch (error) {
+    console.error("Error fetching movie casts:", error);
+    return [];
   }
 };

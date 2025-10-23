@@ -119,6 +119,119 @@
   color: var(--color-white);
 }
 
+/* ===================== CAST SECTION ===================== */
+.movie-cast-section {
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 1.5rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.movie-cast-section h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.cast-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cast-container {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 0.8rem;
+}
+
+.cast-container::-webkit-scrollbar {
+  display: none;
+}
+
+.cast-card {
+  flex: 0 0 110px;
+  text-align: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 0.4rem;
+  transition: transform 0.3s ease;
+}
+
+.cast-card:hover {
+  transform: scale(1.05);
+}
+
+.cast-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.actor-name {
+  font-weight: 600;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.character-name {
+  font-size: 0.68rem;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* Scroll Buttons (Only appear if needed) */
+.cast-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.cast-btn:hover {
+  background: var(--color-primary);
+}
+
+.cast-btn.left {
+  left: -10px;
+}
+
+.cast-btn.right {
+  right: -10px;
+}
+
+@media (max-width: 768px) {
+  .cast-card {
+    flex: 0 0 90px;
+  }
+
+  .cast-img {
+    height: 100px;
+  }
+
+  .actor-name {
+    font-size: 0.7rem;
+  }
+
+  .character-name {
+    font-size: 0.65rem;
+  }
+}
+
 @media (max-width: 900px) {
   .movie-details-container {
     flex-direction: column;

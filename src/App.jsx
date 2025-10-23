@@ -1,12 +1,12 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Arrival from "./Arrival";
-import ExclusiveVideos from "./ExclusiveVideos";
 import Popular from "./Popular";
 import FeaturedCasts from "./FeaturedCasts";
 import Footer from "./Footer";
 import HomePage from "./HomePage";
 import Header from "./Header";
 import MovieDetails from "./MovieDetails";
+import Trending from "./Trending";
+import TopRated from "./TopRated";
 
 function App() {
   const location = useLocation();
@@ -22,16 +22,16 @@ function App() {
           element={
             <>
               <HomePage />
+              <Trending />
               <Popular />
-              <Arrival />
-              <ExclusiveVideos />
-              <FeaturedCasts />
+              <TopRated />
+              {/* <FeaturedCasts /> */}
             </>
           }
         />
         <Route path="/popular" element={<Popular />} />
-        <Route path="/arrival" element={<Arrival />} />
-        <Route path="/exclusive" element={<ExclusiveVideos />} />
+        <Route path="/trending" element={<Trending />} />
+        <Route path="/topRated" element={<TopRated />} />
         <Route path="/casts" element={<FeaturedCasts />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
