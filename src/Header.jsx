@@ -2,12 +2,18 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { fetchSearchResults } from "./api";
+import { useGlobalContext } from "./context";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
+
+  const { likedMovies } = useGlobalContext();
+  const likedCount = Object.keys(likedMovies).filter(
+    (id) => likedMovies[id]
+  ).length;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -98,6 +104,12 @@ const Header = () => {
           >
             TopRated
           </NavLink>
+
+          {likedCount > 0 && (
+            <Link to="/liked" className="nav-link">
+              Favorites ({likedCount})
+            </Link>
+          )}
         </nav>
 
         <button className="menu-toggle" onClick={toggleMenu}>
@@ -122,6 +134,12 @@ const Header = () => {
         <NavLink to="/topRated" onClick={toggleMenu}>
           TopRated
         </NavLink>
+
+        {likedCount > 0 && (
+          <Link to="/liked" className="nav-link">
+            Favorites ({likedCount})
+          </Link>
+        )}
       </div>
 
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}

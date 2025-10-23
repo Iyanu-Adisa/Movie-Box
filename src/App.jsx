@@ -7,6 +7,7 @@ import Header from "./Header";
 import MovieDetails from "./MovieDetails";
 import Trending from "./Trending";
 import TopRated from "./TopRated";
+import LikedMovies from "./LikedMovies";
 
 function App() {
   const location = useLocation();
@@ -25,7 +26,6 @@ function App() {
               <Trending />
               <Popular />
               <TopRated />
-              {/* <FeaturedCasts /> */}
             </>
           }
         />
@@ -34,6 +34,7 @@ function App() {
         <Route path="/topRated" element={<TopRated />} />
         <Route path="/casts" element={<FeaturedCasts />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/liked" element={<LikedMovies />} />
       </Routes>
 
       <Footer />

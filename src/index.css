@@ -390,7 +390,8 @@ body {
 /* MOVIE SECTIONS */
 .popular,
 .trending,
-.top-rated {
+.top-rated,
+.liked-movies {
   background: var(--color-white);
   color: var(--color-black);
   padding: 60px 80px;
@@ -744,4 +745,11 @@ body {
   .search-bar input {
     width: 100%;
   }
+}
+
+.no-liked-text {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  text-align: center;
 }
