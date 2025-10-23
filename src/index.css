@@ -627,53 +627,7 @@ body {
     padding-right: 40px;
   }
   .movie-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  .movie-card {
-    width: 200px;
-  }
-
-  .movie-pic {
-    height: 200px;
-    width: 200px;
-  }
-
-  .movie-title {
-    font-size: 12px;
-  }
-
-  .movie-year,
-  .movie-rating,
-  .details-link {
-    font-size: 10px;
-  }
-}
-
-/* Extra small (tiny phones) */
-@media (max-width: 480px) {
-  .movie-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .movie-card {
-    max-width: 300px;
-  }
-
-  .movie-pic {
-    height: 180px;
-  }
-
-  .movie-title {
-    font-size: 11px;
-  }
-
-  .movie-year,
-  .movie-rating,
-  .details-link {
-    font-size: 9px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
