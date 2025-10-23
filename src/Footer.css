@@ -3,7 +3,7 @@
 .footer {
   background: white;
   color: black;
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
   font-family: "DM Sans", sans-serif;
 }
@@ -12,12 +12,13 @@
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .footer-icons img {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   transition: transform 0.3s ease;
 }
 
@@ -25,12 +26,14 @@
   transform: scale(1.2);
 }
 
+/* LINKS */
 .footer-links {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 15px;
+  gap: 40px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .footer-links li a {
@@ -45,7 +48,59 @@
   color: hsl(345, 83%, 41%);
 }
 
+/* COPYRIGHT */
 .footer-bottom {
   font-size: 13px;
   color: #666;
+}
+
+/* 🌐 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 15px;
+  }
+
+  .footer-icons {
+    gap: 20px;
+  }
+
+  .footer-icons img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .footer-links li a {
+    font-size: 13.5px;
+  }
+
+  .footer-bottom {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+}
+
+/* 🧠 Optional: smaller screens */
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 10px;
+  }
+
+  .footer-icons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-links {
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
 }
