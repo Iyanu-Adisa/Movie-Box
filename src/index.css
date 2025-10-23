@@ -618,13 +618,21 @@ body {
 
 /* Small screens (phones) */
 @media (max-width: 768px) {
+  .popular,
+  .trending,
+  .top-rated,
+  .liked-movies {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   .movie-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    gap: 30px;
   }
 
   .movie-card {
-    width: 300px;
+    width: 200px;
   }
 
   .movie-pic {
