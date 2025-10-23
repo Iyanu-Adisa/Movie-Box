@@ -617,11 +617,11 @@ body {
 @media (max-width: 768px) {
   .movie-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 30px;
   }
 
   .movie-card {
-    max-width: 160px;
+    max-width: 300px;
   }
 
   .movie-pic {
@@ -647,7 +647,7 @@ body {
   }
 
   .movie-card {
-    max-width: 140px;
+    max-width: 300px;
   }
 
   .movie-pic {
