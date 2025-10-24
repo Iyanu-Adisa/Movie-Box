@@ -94,8 +94,8 @@ body {
 .nav-right a {
   color: var(--color-white);
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s, border 0.3s;
+  font-size: 14px;
 }
 
 .nav-right a:hover {
@@ -104,6 +104,8 @@ body {
 
 .nav-right a.active {
   color: hsl(345, 83%, 41%);
+  font-weight: bold;
+  font-size: 16px;
   border-bottom: 2px solid hsl(345, 83%, 41%);
 }
 
@@ -780,4 +782,85 @@ body {
   font-size: 1.1rem;
   margin-top: 2rem;
   text-align: center;
+}
+
+/* 🌙 DARK MODE STYLES */
+body.dark-mode {
+  --color-white: #121212;
+  --color-black: #ffffff;
+  --color-text-dark: #ffffff;
+  --color-text-light: #cccccc;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .header {
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .search-bar input {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+body.dark-mode .search-results-dropdown {
+  background-color: #222;
+}
+body.dark-mode .hero,
+body.dark-mode .cta-btn {
+  color: white;
+}
+
+body.dark-mode .play-icon {
+  background-color: white;
+}
+
+body.dark-mode .movie-card {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+.header,
+.header a,
+.nav-right a,
+.nav-link,
+.menu-toggle,
+.sidebar a,
+.sidebar .close-btn {
+  color: #ffffff !important;
+}
+
+.nav-right a:hover,
+.sidebar a:hover {
+  color: var(--color-primary) !important;
+}
+
+.nav-right a.active,
+.sidebar a.active {
+  color: var(--color-primary) !important;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.header svg,
+.sidebar svg,
+.sidebar {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.header {
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }

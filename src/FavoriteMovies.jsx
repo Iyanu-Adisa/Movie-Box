@@ -4,7 +4,7 @@ import { useGlobalContext } from "./context";
 import { fetchMovieDetails } from "./api";
 import { FaChevronRight } from "react-icons/fa";
 
-const LikedMovies = () => {
+const FavoriteMovies = () => {
   const { likedMovies, toggleLike } = useGlobalContext();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -102,4 +102,4 @@ const LikedMovies = () => {
   );
 };
 
-export default LikedMovies;
+export default FavoriteMovies;

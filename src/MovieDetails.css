@@ -73,6 +73,32 @@
   margin-bottom: 0.5rem;
 }
 
+.details-like-btn-inline {
+  margin-left: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.details-like-btn-inline:hover {
+  transform: scale(1.1);
+}
+
+.details-like-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(100%);
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.details-like-btn-inline.liked img {
+  filter: invert(28%) sepia(88%) saturate(7484%) hue-rotate(345deg)
+    brightness(95%) contrast(119%);
+  transform: scale(1.2);
+}
+
 .details-sub {
   margin: 0.4rem 0;
   font-size: 1rem;

@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { fetchMovieDetails, fetchMovieCasts } from "./api";
+import { useGlobalContext } from "./context";
+
 import {
   FaArrowLeft,
   FaStar,
@@ -17,6 +19,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const { likedMovies, toggleLike } = useGlobalContext();
 
   const castContainerRef = useRef(null);
 
@@ -87,7 +90,21 @@ const MovieDetails = () => {
         />
 
         <div className="details-info">
-          <h1 className="details-title">{movie.title}</h1>
+          <h1 className="details-title">
+            {movie.title}
+            <span
+              className={`details-like-btn-inline ${
+                likedMovies[movie.id] ? "liked" : ""
+              }`}
+              onClick={() => toggleLike(movie.id)}
+            >
+              <img
+                src="/Icons/love-icon.svg"
+                alt="like icon"
+                className="details-like-icon"
+              />
+            </span>
+          </h1>
           <p className="details-sub">Release Date: {movie.release_date}</p>
           <p className="details-sub">Runtime: {movie.runtime} mins</p>
           <p className="details-sub">

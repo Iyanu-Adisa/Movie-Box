@@ -85,7 +85,6 @@
   }
 }
 
-/* 🧠 Optional: smaller screens */
 @media (max-width: 480px) {
   .footer {
     padding: 40px 10px;
@@ -103,4 +102,24 @@
   .footer-bottom {
     font-size: 12px;
   }
+}
+
+body.dark-mode .footer {
+  background: #121212;
+  color: #e4e2e2;
+}
+
+body.dark-mode .footer-icons img {
+  filter: brightness(0) invert(0.7);
+}
+
+body.dark-mode .footer-links li a {
+  color: #e4e2e2;
+}
+body.dark-mode .footer-bottom {
+  color: #aca7a7;
+}
+
+body.dark-mode .footer-links li a:hover {
+  color: var(--color-primary);
 }
