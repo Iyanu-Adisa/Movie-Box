@@ -4,16 +4,16 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-icons">
-        <a href="#">
+        <a href="https://web.facebook.com/?_rdc=1&_rdr#">
           <img src="/Icons/Facebook.svg" alt="Facebook" />
         </a>
-        <a href="#">
+        <a href="https://www.instagram.com/">
           <img src="/Icons/Instagram.svg" alt="Instagram" />
         </a>
-        <a href="#">
+        <a href="https://x.com/">
           <img src="/Icons/Twitter.svg" alt="Twitter" />
         </a>
-        <a href="#">
+        <a href="https://www.youtube.com/">
           <img src="/Icons/Youtube.svg" alt="YouTube" />
         </a>
       </div>
