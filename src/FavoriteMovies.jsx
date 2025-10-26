@@ -19,7 +19,6 @@ const FavoriteMovies = () => {
         return;
       }
 
-      // Fetch movie details for each liked ID
       const likedData = await Promise.all(
         likedIds.map((id) => fetchMovieDetails(id))
       );

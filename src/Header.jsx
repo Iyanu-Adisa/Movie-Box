@@ -21,13 +21,11 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // 🌙 Apply dark mode & persist in localStorage
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  // 🔍 Live search debounce
   useEffect(() => {
     const delayDebounce = setTimeout(async () => {
       if (searchValue.trim().length > 0) {
@@ -49,14 +47,12 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        {/* Logo */}
         <div className="logo">
           <Link to="/">
             <img src="/Images/Logo.png" alt="logo" />
           </Link>
         </div>
 
-        {/* Search Bar */}
         <div className="search-bar">
           <input
             type="text"
@@ -68,7 +64,6 @@ const Header = () => {
             <img src="/Icons/Icon.svg" alt="search-icon" />
           )}
 
-          {/* Dropdown Results */}
           {searchResults.length > 0 && (
             <div className="search-results-dropdown">
               {searchResults.slice(0, 8).map((movie) => (
@@ -91,7 +86,6 @@ const Header = () => {
           )}
         </div>
 
-        {/* Nav Links */}
         <nav className="nav-right">
           <NavLink
             to="/"
@@ -118,7 +112,6 @@ const Header = () => {
             TopRated
           </NavLink>
 
-          {/* Favorites link only shows if there’s at least one liked movie */}
           {likedCount > 0 && (
             <NavLink
               to="/favorite"
@@ -128,7 +121,6 @@ const Header = () => {
             </NavLink>
           )}
 
-          {/* 🌙 Dark Mode Toggle */}
           <button
             className="dark-mode-toggle"
             onClick={() => setDarkMode((prev) => !prev)}
@@ -137,13 +129,11 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button className="menu-toggle" onClick={toggleMenu}>
           <FiMenu size={26} />
         </button>
       </header>
 
-      {/* Sidebar for mobile view */}
       <div className={`sidebar ${isMenuOpen ? "open" : ""}`}>
         <button className="close-btn" onClick={toggleMenu}>
           <FiX size={28} />
@@ -167,7 +157,6 @@ const Header = () => {
           </NavLink>
         )}
 
-        {/* Dark Mode toggle inside sidebar too */}
         <button
           className="dark-mode-toggle mobile-toggle"
           onClick={() => setDarkMode((prev) => !prev)}
@@ -177,7 +166,6 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Overlay for when menu is open */}
       {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
     </>
   );

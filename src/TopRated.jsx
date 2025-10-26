@@ -70,12 +70,10 @@ const TopRated = () => {
 
       <div className="movie-container">
         {moviesToDisplay.map((movie, index) => {
-          // Calculate the actual ranking position
           const rank = currentIndex + index + 1;
 
           return (
             <div key={movie.id} className="movie-card top-rated-card">
-              {/* Big ranking number overlay like Netflix */}
               <div className="rank-number">{rank}</div>
 
               <img

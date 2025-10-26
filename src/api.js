@@ -29,7 +29,6 @@ export const fetchSearchResults = async (query) => {
   }
 };
 
-//  Get details for a specific movie by ID
 export const fetchMovieDetails = async (id) => {
   try {
     const response = await fetch(
@@ -91,7 +90,7 @@ export const fetchMovieCasts = async (id) => {
       `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    return data.cast; // returns array of cast members
+    return data.cast;
   } catch (error) {
     console.error("Error fetching movie casts:", error);
     return [];

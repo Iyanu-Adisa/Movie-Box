@@ -133,7 +133,6 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      {/* 🎭 CAST SECTION */}
       <div className="movie-cast-section">
         <h2>Cast</h2>
 

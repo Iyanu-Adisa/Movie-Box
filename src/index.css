@@ -53,6 +53,7 @@ body {
   }
 }
 
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
@@ -84,7 +85,6 @@ body {
   object-fit: contain;
 }
 
-/* NAV */
 .nav-right {
   display: flex;
   align-items: center;
@@ -109,7 +109,6 @@ body {
   border-bottom: 2px solid hsl(345, 83%, 41%);
 }
 
-/* SEARCH BAR */
 .search-bar {
   flex: 1;
   max-width: 320px;
@@ -276,12 +275,10 @@ body {
     gap: 8px;
   }
 
-  /* shrink logo */
   .logo img {
     height: 32px;
   }
 
-  /* show hamburger menu */
   .menu-toggle {
     display: block;
     font-size: 1.8rem;
@@ -291,12 +288,10 @@ body {
     z-index: 1200;
   }
 
-  /* hide desktop links */
   .nav-right {
     display: none;
   }
 
-  /* make search bar visible and usable */
   .search-bar {
     flex: 1;
     width: 100%;
@@ -318,7 +313,6 @@ body {
     width: 14px;
   }
 
-  /* fix dropdown positioning on small screens */
   .search-results-dropdown {
     width: 90%;
     left: 50%;
@@ -326,7 +320,6 @@ body {
     top: 45px;
   }
 
-  /* mobile sidebar styling */
   .sidebar {
     width: 230px;
     right: -230px;
@@ -337,7 +330,6 @@ body {
     right: 0;
   }
 
-  /* overlay visible when sidebar open */
   .overlay {
     display: block;
   }
@@ -722,9 +714,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* RESPONSIVENESS */
-
-/* Medium screens (tablets) */
 @media (max-width: 1024px) {
   .movie-container {
     grid-template-columns: repeat(3, 1fr);
@@ -749,7 +738,6 @@ body {
   }
 }
 
-/* Small screens (phones) */
 @media (max-width: 768px) {
   .popular,
   .trending,
@@ -784,7 +772,7 @@ body {
   text-align: center;
 }
 
-/* 🌙 DARK MODE STYLES */
+/* DARK MODE STYLES */
 body.dark-mode {
   --color-white: #121212;
   --color-black: #ffffff;

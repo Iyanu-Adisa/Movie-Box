@@ -3,13 +3,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // ❤️ Liked Movies
   const [likedMovies, setLikedMovies] = useState(() => {
     const saved = localStorage.getItem("likedMovies");
     return saved ? JSON.parse(saved) : {};
   });
 
-  // 🌙 Dark Mode
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("moviebox-theme") === "dark"
   );

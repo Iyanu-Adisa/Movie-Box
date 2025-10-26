@@ -31,7 +31,11 @@ const Footer = () => {
       </ul>
 
       <div className="footer-bottom">
-        <p>&copy; 2025 MovieBox by Iyanu Adisa</p>
+        <p>
+          {" "}
+          © {new Date().getFullYear()} MovieBox by Iyanu Adisa. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );

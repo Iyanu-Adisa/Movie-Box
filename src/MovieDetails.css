@@ -145,7 +145,6 @@
   color: var(--color-white);
 }
 
-/* ===================== CAST SECTION ===================== */
 .movie-cast-section {
   margin: 0 auto;
   max-width: 1300px;
@@ -212,7 +211,6 @@
   margin-top: 2px;
 }
 
-/* Scroll Buttons (Only appear if needed) */
 .cast-btn {
   position: absolute;
   top: 50%;

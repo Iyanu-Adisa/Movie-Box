@@ -26,7 +26,6 @@
   transform: scale(1.2);
 }
 
-/* LINKS */
 .footer-links {
   list-style: none;
   display: flex;
@@ -48,13 +47,11 @@
   color: hsl(345, 83%, 41%);
 }
 
-/* COPYRIGHT */
 .footer-bottom {
   font-size: 13px;
   color: #666;
 }
 
-/* 🌐 RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   .footer {
     padding: 50px 15px;
