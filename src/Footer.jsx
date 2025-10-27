@@ -36,7 +36,7 @@ const Footer = () => {
           © {new Date().getFullYear()} MovieBox by Iyanu Adisa. All rights
           reserved.
         </p>
-      </div>
+      ~</div>
     </footer>
   );
 };

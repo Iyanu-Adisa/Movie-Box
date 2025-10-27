@@ -8,23 +8,16 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true";
-  });
 
   const navigate = useNavigate();
-  const { likedMovies } = useGlobalContext();
+
+  const { likedMovies, darkMode, toggleTheme } = useGlobalContext();
 
   const likedCount = Object.keys(likedMovies).filter(
     (id) => likedMovies[id]
   ).length;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  useEffect(() => {
-    document.body.classList.toggle("dark-mode", darkMode);
-    localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
 
   useEffect(() => {
     const delayDebounce = setTimeout(async () => {
@@ -121,10 +114,7 @@ const Header = () => {
             </NavLink>
           )}
 
-          <button
-            className="dark-mode-toggle"
-            onClick={() => setDarkMode((prev) => !prev)}
-          >
+          <button className="dark-mode-toggle" onClick={toggleTheme}>
             {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
           </button>
         </nav>
@@ -152,14 +142,14 @@ const Header = () => {
         </NavLink>
 
         {likedCount > 0 && (
-          <NavLink to="/favorite" className="nav-link" onClick={toggleMenu}>
+          <NavLink to="/favorite" onClick={toggleMenu}>
             Favorites ({likedCount})
           </NavLink>
         )}
 
         <button
           className="dark-mode-toggle mobile-toggle"
-          onClick={() => setDarkMode((prev) => !prev)}
+          onClick={toggleTheme}
         >
           {darkMode ? <FiSun size={22} /> : <FiMoon size={22} />}
           <span>{darkMode ? "Light Mode" : "Dark Mode"}</span>
