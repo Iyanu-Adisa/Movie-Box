@@ -852,3 +852,27 @@ body.dark-mode .movie-card {
 .header {
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
+
+.full-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.half-page {
+  flex: 1;
+}
+
+.not-found {
+  margin-top: 60px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.not-found h4 {
+  margin-top: 40px;
+}

@@ -7,6 +7,7 @@ import MovieDetails from "./MovieDetails";
 import Trending from "./Trending";
 import TopRated from "./TopRated";
 import FavoriteMovies from "./FavoriteMovies";
+import NotFound from "./NotFound";
 
 function App() {
   const location = useLocation();
@@ -14,28 +15,33 @@ function App() {
 
   return (
     <>
-      {!hideHeader && <Header />}
+      <main className="full-page">
+        {!hideHeader && <Header />}
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HomePage />
-              <Trending />
-              <Popular />
-              <TopRated />
-            </>
-          }
-        />
-        <Route path="/popular" element={<Popular />} />
-        <Route path="/trending" element={<Trending />} />
-        <Route path="/topRated" element={<TopRated />} />
-        <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/favorite" element={<FavoriteMovies />} />
-      </Routes>
+        <div className="half-page">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <HomePage />
+                  <Trending />
+                  <Popular />
+                  <TopRated />
+                </>
+              }
+            />
+            <Route path="/popular" element={<Popular />} />
+            <Route path="/trending" element={<Trending />} />
+            <Route path="/topRated" element={<TopRated />} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+            <Route path="/favorite" element={<FavoriteMovies />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
 
-      <Footer />
+        <Footer />
+      </main>
     </>
   );
 }
