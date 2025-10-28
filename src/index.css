@@ -876,3 +876,10 @@ body.dark-mode .movie-card {
 .not-found h4 {
   margin-top: 40px;
 }
+
+.no-results {
+  text-align: center;
+  color: #ccc;
+  padding: 1rem;
+  font-size: 0.95rem;
+}

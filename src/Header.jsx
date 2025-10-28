@@ -8,9 +8,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
 
   const navigate = useNavigate();
-
   const { likedMovies, darkMode, toggleTheme } = useGlobalContext();
 
   const likedCount = Object.keys(likedMovies).filter(
@@ -23,11 +23,19 @@ const Header = () => {
     const delayDebounce = setTimeout(async () => {
       if (searchValue.trim().length > 0) {
         const data = await fetchSearchResults(searchValue);
-        setSearchResults(data.results || []);
+        if (data.results && data.results.length > 0) {
+          setSearchResults(data.results);
+          setNoResults(false);
+        } else {
+          setSearchResults([]);
+          setNoResults(true);
+        }
       } else {
         setSearchResults([]);
+        setNoResults(false);
       }
     }, 500);
+
     return () => clearTimeout(delayDebounce);
   }, [searchValue]);
 
@@ -75,6 +83,12 @@ const Header = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+
+          {noResults && (
+            <div className="search-results-dropdown no-results">
+              <p>No results found for "{searchValue}"</p>
             </div>
           )}
         </div>
