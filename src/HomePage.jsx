@@ -17,8 +17,8 @@ const HomePage = () => {
             trending[Math.floor(Math.random() * trending.length)];
           setMovie(randomMovie);
 
-          const teaserKey = await fetchMovieTeaser(randomMovie.id);
-          setVideoKey(teaserKey);
+          const trailerKey = await fetchMovieTeaser(randomMovie.id);
+          setVideoKey(trailerKey);
         }
       } catch (error) {
         console.error("Error loading homepage movie:", error);

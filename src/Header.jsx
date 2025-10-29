@@ -101,16 +101,16 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="/popular"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Popular
-          </NavLink>
-          <NavLink
             to="/trending"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Trending
+          </NavLink>
+          <NavLink
+            to="/popular"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Popular
           </NavLink>
           <NavLink
             to="/topRated"
@@ -145,11 +145,11 @@ const Header = () => {
         <NavLink to="/" onClick={toggleMenu}>
           Home
         </NavLink>
-        <NavLink to="/popular" onClick={toggleMenu}>
-          Popular
-        </NavLink>
         <NavLink to="/trending" onClick={toggleMenu}>
           Trending
+        </NavLink>
+        <NavLink to="/popular" onClick={toggleMenu}>
+          Popular
         </NavLink>
         <NavLink to="/topRated" onClick={toggleMenu}>
           TopRated
