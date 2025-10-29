@@ -509,9 +509,8 @@ body {
 }
 
 /* MOVIE SECTIONS */
-.popular,
-.trending,
-.top-rated,
+
+.movie-section,
 .liked-movies {
   background: var(--color-white);
   color: var(--color-black);
