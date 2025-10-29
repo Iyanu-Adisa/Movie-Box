@@ -53,18 +53,22 @@ export const fetchTrendingMovies = async () => {
   }
 };
 
-export const fetchMovieTrailer = async (id) => {
+export const fetchMovieTeaser = async (id) => {
   try {
     const response = await fetch(
       `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    const trailer = data.results.find(
-      (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+
+    const teaser = data.results.find(
+      (vid) =>
+        (vid.type === "Trailer" || vid.type === "Teaser") &&
+        vid.site === "YouTube"
     );
-    return trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
+
+    return teaser ? teaser.key : null;
   } catch (error) {
-    console.error("Error fetching movie trailer:", error);
+    console.error("Error fetching movie teaser:", error);
     return null;
   }
 };

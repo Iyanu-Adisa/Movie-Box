@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { fetchTrendingMovies, fetchMovieTrailer } from "./api";
-import { FaPlay } from "react-icons/fa";
+import { fetchTrendingMovies, fetchMovieTeaser } from "./api";
+import { FaPlay, FaTimes } from "react-icons/fa";
 
 const HomePage = () => {
   const [movie, setMovie] = useState(null);
-  const [trailerUrl, setTrailerUrl] = useState(null);
+  const [videoKey, setVideoKey] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const getTrendingMovie = async () => {
@@ -16,8 +17,8 @@ const HomePage = () => {
             trending[Math.floor(Math.random() * trending.length)];
           setMovie(randomMovie);
 
-          const trailer = await fetchMovieTrailer(randomMovie.id);
-          setTrailerUrl(trailer);
+          const teaserKey = await fetchMovieTeaser(randomMovie.id);
+          setVideoKey(teaserKey);
         }
       } catch (error) {
         console.error("Error loading homepage movie:", error);
@@ -53,8 +54,7 @@ const HomePage = () => {
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <p className="trending-label">Trending Now!!!!</p>
-
+        <p className="trending-label">Trending Now!</p>
         <h1 className="hero-title">{movie.title}</h1>
 
         <div className="rating">
@@ -69,20 +69,40 @@ const HomePage = () => {
             : movie.overview}
         </p>
 
-        {trailerUrl && (
-          <a
-            href={trailerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        {videoKey && (
+          <button
             className="cta-btn trailer-btn"
+            onClick={() => setIsModalOpen(true)}
           >
             <span className="play-icon">
               <FaPlay />
             </span>
             Watch Trailer
-          </a>
+          </button>
         )}
       </div>
+
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="modal-close"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <FaTimes />
+            </button>
+            <iframe
+              width="100%"
+              height="400"
+              src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+              title="Movie Teaser"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
