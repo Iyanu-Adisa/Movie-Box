@@ -522,7 +522,7 @@ body {
 
 @media (max-width: 360px) {
   .modal-content iframe {
-    height: 65vw; /* more height for ultra-small screens */
+    height: 65vw;
   }
 }
 
