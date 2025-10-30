@@ -20,7 +20,8 @@ const MovieSection = ({
   useEffect(() => {
     const getMovies = async () => {
       const data = await fetchFunction();
-      setMovies(data);
+      const filtered = data.filter((movie) => movie.poster_path);
+      setMovies(filtered);
       setLoading(false);
     };
     getMovies();
